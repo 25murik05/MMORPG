@@ -1,0 +1,25 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+
+{% for post in posts %}
+   <h3>
+      <table>
+            <tr>
+               <td>
+                  <a href="{% url 'my_post_detail' post.id %}">{{ post.title }}</a>
+                    <a class="text-decoration-none" href="{% url 'my_comments_list' post.pk %}">
+                        <button type="button" class="btn btn-outline-primary position-relative ">
+                            Отзывы!
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                {{ post.comment_set.all|length }}
+                            </span>
+                        </button>
+                    </a>
+               </td>
+            </tr>
+      </table>
+   </h3>
+{% endfor %}
+<button> <a href="/create/">Создать новость!</a> </button>
+{% endblock %}

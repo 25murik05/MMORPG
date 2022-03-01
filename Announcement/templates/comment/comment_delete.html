@@ -1,0 +1,36 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<div class="container">
+
+  <h2>Удалить этот отзыв?</h2>
+  <p>
+
+    {{ comment.text }}
+  </p>
+  <p>
+    <b>
+      Автор отзыва:
+    </b>
+    <span class="fst-italic">
+      {{ comment.author }}
+    </span>
+    <b>
+      оставлен:
+    </b>
+    <span class="fst-italic">
+      {{ comment.datetime}}
+    </span>
+  </p>
+  <form method="POST">
+    {% csrf_token %}
+    <a href="{% url 'comment_delete' comment.pk %}">
+      <button class="btn btn-danger">
+        Удалить
+      </button>
+    </a>
+  </form>
+</div>
+
+
+{% endblock content %}

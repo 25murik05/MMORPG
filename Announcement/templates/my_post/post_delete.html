@@ -1,0 +1,7 @@
+{% extends 'flatpages/default.html' %}
+{% block content %}
+    <h1>Вы действительно хотите удалить данное объявление?</h1>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+Post
+{% endblock title %}
+
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p style="font-size: 1.5em;">
+        Содержимое объявления:
+    </p>
+    <div class="card-body">
+
+      <p class="card-text ">{{ post.text|safe }}</p>
+
+
+
+    </div>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><span style="color: #0000ff;">Дата публикации новости: {{ post.datetime| date:'d-M-Y h:m' }}</span></p>
+    <button> <a href="{% url 'post_update' post.id %}">Редактировать</a> </button>
+    <button> <a href="{% url 'post_delete' post.id %}">Удалить</a> </button>
+{% endblock content %}
